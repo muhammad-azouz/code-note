@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>options</title>
+    <style>
+      #loading {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #root {
+        display: none;
+      }
+    </style>
+    <script>
+      function hideLoader() {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("root").style.display = "block";
+      }
+    </script>
+  </head>
+
+  <body class="dark" onload="hideLoader()">
+    <div
+      id="loading"
+      class="w-full h-screen bg-black flex justify-center items-center"
+    >
+      Loading...
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/options.tsx"></script>
+  </body>
+</html>

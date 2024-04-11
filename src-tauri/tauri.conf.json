@@ -1,7 +1,7 @@
 {
   "productName": "code-note",
   "version": "0.0.1",
-  "identifier": "com.tauri.dev",
+  "identifier": "com.codenote.dev",
   "build": {
     "beforeDevCommand": "pnpm dev",
     "devUrl": "http://localhost:1420",
@@ -11,9 +11,13 @@
   "app": {
     "windows": [
       {
-        "title": "code-note",
-        "width": 800,
-        "height": 600
+        "title": "Codenote",
+        "width": 1300,
+        "minWidth": 1000,
+        "minHeight": 650,
+        "height": 600,
+        "center": true,
+        "transparent": true
       }
     ],
     "security": {
