@@ -8,8 +8,8 @@ import Notebooks from "./components/note-book";
 import ThreeColumnLayout from "./components/three-column-layout";
 import CustomTitlebar from "./components/custom-titlebar";
 import ShortcutHandler, { shortcutConfig } from "./components/action-handler";
-import Editor from "./components/editor";
 import NoteList from "./components/note-list";
+import EditorContainer from "./components/editor-container";
 
 function App() {
   const firstColumnWidth = useAtomValue(firstColumnAtom);
@@ -25,7 +25,7 @@ function App() {
         renderThirdColumn={() => (
           <div data-tauri-drag-region className="flex flex-col h-full">
             <CustomTitlebar />
-            <Editor />
+            <EditorContainer />
           </div>
         )}
         notebookWidth={firstColumnWidth}

@@ -1,12 +1,32 @@
-import WorkdeskPlaner from "./svg/workdesk-planer-svg";
+import React, { useCallback, useEffect } from "react";
+import useCodeMirror from "../hooks/use-codemirror";
+import { EditorState } from "@codemirror/state";
 
-const Editor = () => {
-  return (
-    <div className="text-white flex flex-1  justify-center items-center antialiased ">
-      <WorkdeskPlaner className="text-gray-500" />
-      {/* <NoteNoteFoundIcon className="text-gray-500" /> */}
-    </div>
+interface Props {
+  initialDoc: string;
+  onChange: (doc: string) => void;
+}
+
+const Editor: React.FC<Props> = (props) => {
+  const { onChange, initialDoc } = props;
+
+  const handleChange = useCallback(
+    (state: EditorState) => onChange(state.doc.toString()),
+    [onChange],
   );
+
+  const [refContainer, editorView] = useCodeMirror<HTMLDivElement>({
+    initialDoc: initialDoc,
+    onChange: handleChange,
+  });
+
+  useEffect(() => {
+    if (editorView) {
+      // Do nothing for now
+    }
+  }, [editorView]);
+
+  return <div className="flex-1 h-full" ref={refContainer}></div>;
 };
 
 export default Editor;
